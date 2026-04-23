@@ -5,25 +5,25 @@ const founders = [
     name: "Thomas Jiralerspong",
     href: "https://superkaiba.github.io/",
     photo: "/team/thomas.webp",
-    bio: "PhD at Mila advised by Yoshua Bengio and Research Fellow at Anthropic via the Astra Fellowship. Publishes at ICML on representation learning, model-based RL, and chain-of-thought monitoring; previously Vector Institute and Waabi.",
+    bio: "PhD with Yoshua Bengio at Mila.\nPrev Anthropic, Vector, Waabi.",
   },
   {
     name: "Siddarth Venkatraman",
     href: "https://hyperpotatoneo.github.io/",
     photo: "/team/siddarth.webp",
-    bio: "PhD at Mila with Glen Berseth and Nikolay Malkin, collaborating closely with Yoshua Bengio. Currently at Mistral working on RL post-training; previously built ML for the Mars Rover at NASA JPL and earned his MSR at CMU Robotics.",
+    bio: "PhD with Glen Berseth and Nikolay Malkin at Mila.\nPrev Mistral, CMU, NASA JPL.",
   },
   {
     name: "Benjamin Thérien",
     href: "https://bentherien.github.io/",
     photo: "/team/benjamin.webp",
-    bio: "PhD at Mila and Université de Montréal with Irina Rish and Eugene Belilovsky. Author of PyLO (a PyTorch library for learned optimization) and papers on continual pretraining of mixture-of-experts; previously Meta AI and Waterloo's WISE Lab.",
+    bio: "PhD with Irina Rish and Eugene Belilovsky at Mila.\nPrev Meta, Waterloo.",
   },
   {
     name: "Emiliano Penaloza",
     href: "https://emilianopp.com/",
     photo: "/team/emiliano.webp",
-    bio: "PhD at Mila with Laurent Charlin, currently at Microsoft Research. Publishes on concept bottleneck models, LLM alignment, and web agents; previously ServiceNow AI Research and KU Leuven.",
+    bio: "PhD with Laurent Charlin at Mila.\nPrev Microsoft Research, ServiceNow, KU Leuven.",
   },
 ] as const;
 
@@ -298,7 +298,7 @@ function Team() {
                   {f.name}
                 </h3>
 
-                <p className="mt-3 flex-1 text-[13px] leading-relaxed text-ink-muted">
+                <p className="mt-3 flex-1 whitespace-pre-line text-[13px] leading-relaxed text-ink-muted">
                   {f.bio}
                 </p>
               </a>
