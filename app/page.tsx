@@ -3,35 +3,27 @@ import { Logo } from "./components/Logo";
 const founders = [
   {
     name: "Thomas Jiralerspong",
-    affil: "Mila",
-    prev: "Anthropic · Astra · Vector",
     href: "https://superkaiba.github.io/",
     photo: "/team/thomas.webp",
-    bio: "PhD at Mila advised by Yoshua Bengio; Research Fellow at Anthropic via the Astra Fellowship. Works on model-based reinforcement learning, causality, and NeuroAI; previously Vector Institute and Waabi.",
+    bio: "PhD at Mila advised by Yoshua Bengio and Research Fellow at Anthropic via the Astra Fellowship. Publishes at ICML on representation learning, model-based RL, and chain-of-thought monitoring; previously Vector Institute and Waabi.",
   },
   {
     name: "Siddarth Venkatraman",
-    affil: "Mila",
-    prev: "CMU Robotics · NASA JPL",
     href: "https://hyperpotatoneo.github.io/",
     photo: "/team/siddarth.webp",
-    bio: "PhD at Mila with Glen Berseth and Nikolay Malkin; collaborates closely with Yoshua Bengio. Researches reinforcement learning and generative models; previously CMU Robotics and NASA JPL.",
+    bio: "PhD at Mila with Glen Berseth and Nikolay Malkin, collaborating closely with Yoshua Bengio. Currently at Mistral working on RL post-training; previously built ML for the Mars Rover at NASA JPL and earned his MSR at CMU Robotics.",
   },
   {
     name: "Benjamin Thérien",
-    affil: "Mila",
-    prev: "Meta · Waterloo",
     href: "https://bentherien.github.io/",
     photo: "/team/benjamin.webp",
-    bio: "PhD at Mila and Université de Montréal with Irina Rish and Eugene Belilovsky. Focuses on efficient foundation-model pretraining, learned optimization, and continual learning; previously Meta and Waterloo's WISE Lab.",
+    bio: "PhD at Mila and Université de Montréal with Irina Rish and Eugene Belilovsky. Author of PyLO (a PyTorch library for learned optimization) and papers on continual pretraining of mixture-of-experts; previously Meta AI and Waterloo's WISE Lab.",
   },
   {
     name: "Emiliano Penaloza",
-    affil: "Mila",
-    prev: "ServiceNow · KU Leuven",
     href: "https://emilianopp.com/",
     photo: "/team/emiliano.webp",
-    bio: "PhD at Mila with Laurent Charlin. Researches user autonomy, NLP, and AI alignment in recommender systems and language models; previously ServiceNow Research and KU Leuven.",
+    bio: "PhD at Mila with Laurent Charlin, currently at Microsoft Research. Publishes on concept bottleneck models, LLM alignment, and web agents; previously ServiceNow AI Research and KU Leuven.",
   },
 ] as const;
 
@@ -90,10 +82,10 @@ export default function Home() {
       <Nav />
       <main id="main" className="relative z-10">
         <Hero />
+        <Contact />
         <Thesis />
         <Modules />
         <Team />
-        <Contact />
       </main>
       <Footer />
     </div>
@@ -280,20 +272,7 @@ function Team() {
       className="relative border-b border-line bg-canvas-2 px-6 py-24 sm:px-10 sm:py-32"
     >
       <div className="mx-auto max-w-[1400px]">
-        <h2 className="font-display text-4xl font-normal leading-tight tracking-tight text-ink sm:text-5xl">
-          Four researchers, from{" "}
-          <a
-            href="https://mila.quebec"
-            target="_blank"
-            rel="noreferrer"
-            className="link-underline italic"
-          >
-            Mila
-          </a>
-          .
-        </h2>
-
-        <ul className="mt-16 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-4">
+        <ul className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-4">
           {founders.map((f) => (
             <li key={f.name}>
               <a
@@ -318,11 +297,8 @@ function Team() {
                 <h3 className="mt-5 font-display text-xl leading-tight tracking-tight text-ink">
                   {f.name}
                 </h3>
-                <p className="mt-2 font-mono text-[10px] uppercase tracking-[0.2em] text-ink-muted">
-                  {f.affil} · {f.prev}
-                </p>
 
-                <p className="mt-4 flex-1 text-[13px] leading-relaxed text-ink-muted">
+                <p className="mt-3 flex-1 text-[13px] leading-relaxed text-ink-muted">
                   {f.bio}
                 </p>
               </a>
