@@ -82,7 +82,6 @@ export default function Home() {
       <Nav />
       <main id="main" className="relative z-10">
         <Hero />
-        <Contact />
         <Thesis />
         <Modules />
         <Team />
@@ -129,61 +128,86 @@ function Nav() {
 }
 
 /* ============================================================ */
-/* Hero — brand wordmark dominant, tagline supporting           */
+/* Hero — fits brand, tagline, email, and intake panels in one  */
+/* viewport (the first thing visitors see)                      */
 /* ============================================================ */
 function Hero() {
   return (
     <section
       id="top"
-      className="relative px-6 pt-20 pb-32 sm:px-10 sm:pt-32 sm:pb-44"
+      className="relative flex min-h-[calc(100vh-5rem)] flex-col px-6 pt-6 pb-12 sm:px-10 sm:pt-10 sm:pb-16"
     >
       {/* Static ambient amber glow */}
       <div
         aria-hidden="true"
-        className="pointer-events-none absolute left-1/2 top-1/2 -z-10 h-[55vh] w-[55vh] -translate-x-1/2 -translate-y-1/2 rounded-full opacity-50 blur-[140px]"
+        className="pointer-events-none absolute left-1/2 top-1/3 -z-10 h-[55vh] w-[55vh] -translate-x-1/2 -translate-y-1/2 rounded-full opacity-40 blur-[140px]"
         style={{
           background:
             "radial-gradient(circle, rgba(245,165,36,0.4) 0%, rgba(245,165,36,0) 70%)",
         }}
       />
 
-      <div className="mx-auto max-w-[1400px]">
-        <h1
-          className="reveal font-display font-normal leading-[0.9] tracking-[-0.03em] text-ink text-7xl sm:text-9xl md:text-[10rem] lg:text-[14rem]"
-          style={{ animationDelay: "0ms" }}
-        >
-          Sandbox{" "}
-          <span className="italic text-amber" style={{ fontWeight: 400 }}>
-            AI
-          </span>
-        </h1>
+      <div className="mx-auto flex w-full max-w-[1400px] flex-1 flex-col">
+        {/* Brand + tagline */}
+        <div>
+          <h1
+            className="reveal font-display font-normal leading-[0.9] tracking-[-0.03em] text-ink text-6xl sm:text-8xl md:text-9xl lg:text-[10rem]"
+            style={{ animationDelay: "0ms" }}
+          >
+            Sandbox{" "}
+            <span className="italic text-amber" style={{ fontWeight: 400 }}>
+              AI
+            </span>
+          </h1>
 
-        <p
-          className="reveal mt-12 max-w-3xl font-display leading-tight tracking-tight text-ink text-2xl sm:text-3xl md:text-4xl"
-          style={{ animationDelay: "120ms" }}
-        >
-          Reinforcement-learning environments and datasets for{" "}
-          <span className="italic">safer</span> frontier AI.
-        </p>
+          <p
+            className="reveal mt-6 max-w-3xl font-display leading-tight tracking-tight text-ink text-xl sm:text-2xl md:text-3xl"
+            style={{ animationDelay: "120ms" }}
+          >
+            Reinforcement-learning environments and datasets for{" "}
+            <span className="italic">safer</span> frontier AI.
+          </p>
+        </div>
 
+        {/* Contact: email + intake panels, anchored to bottom of viewport */}
         <div
-          className="reveal mt-10 grid gap-6 lg:grid-cols-12 lg:items-end"
+          id="contact"
+          className="reveal mt-auto pt-12"
           style={{ animationDelay: "260ms" }}
         >
-          <p className="max-w-2xl text-base leading-relaxed text-ink-muted lg:col-span-8 sm:text-lg">
-            We design the controlled worlds where labs surface, measure, and
-            patch dangerous model behavior — before deployment.
-          </p>
-          <div className="lg:col-span-4 lg:flex lg:justify-end">
-            <a
-              href="#contact"
-              className="group inline-flex items-center gap-3 border border-amber bg-amber px-6 py-3.5 font-mono text-[11px] uppercase tracking-[0.24em] text-canvas transition-colors hover:bg-transparent hover:text-amber"
-            >
-              Contact
-              <span className="transition-transform group-hover:translate-x-1">
-                →
+          <a
+            href="mailto:contact@sand-box-ai.com"
+            className="group block"
+            aria-label="Email contact@sand-box-ai.com"
+          >
+            <p className="font-display font-normal leading-[0.95] tracking-[-0.03em] text-ink transition-colors group-hover:text-amber text-2xl sm:text-4xl md:text-5xl lg:text-6xl">
+              <span className="italic text-amber group-hover:text-ink transition-colors">
+                contact
               </span>
-            </a>
+              <span className="text-ink-muted">@</span>sand-box-ai
+              <span className="text-ink-muted">.</span>com
+            </p>
+          </a>
+
+          <div className="mt-8 grid gap-x-10 gap-y-6 border-t border-line pt-6 sm:grid-cols-2">
+            <div>
+              <p className="font-mono text-[10px] uppercase tracking-[0.28em] text-amber">
+                Investors
+              </p>
+              <p className="mt-2 max-w-md text-sm leading-relaxed text-ink sm:text-base">
+                We&apos;re raising a pre-seed to ship our first set of
+                environments. Email for the deck or to set up a call.
+              </p>
+            </div>
+            <div>
+              <p className="font-mono text-[10px] uppercase tracking-[0.28em] text-amber">
+                Labs
+              </p>
+              <p className="mt-2 max-w-md text-sm leading-relaxed text-ink sm:text-base">
+                Tell us what you&apos;re testing for — model family, behavior
+                to surface, data format, timeline.
+              </p>
+            </div>
           </div>
         </div>
       </div>
@@ -305,54 +329,6 @@ function Team() {
             </li>
           ))}
         </ul>
-      </div>
-    </section>
-  );
-}
-
-/* ============================================================ */
-/* Contact                                                      */
-/* ============================================================ */
-function Contact() {
-  return (
-    <section
-      id="contact"
-      className="relative border-b border-line px-6 py-24 sm:px-10 sm:py-32"
-    >
-      <div className="mx-auto max-w-[1400px]">
-        <a
-          href="mailto:contact@sand-box-ai.com"
-          className="group block"
-        >
-          <p className="font-display font-normal leading-[0.95] tracking-[-0.03em] text-ink transition-colors group-hover:text-amber text-3xl sm:text-5xl md:text-6xl lg:text-7xl">
-            <span className="italic text-amber group-hover:text-ink transition-colors">
-              contact
-            </span>
-            <span className="text-ink-muted">@</span>sand-box-ai
-            <span className="text-ink-muted">.</span>com
-          </p>
-        </a>
-
-        <div className="mt-12 grid gap-8 sm:grid-cols-2">
-          <div>
-            <p className="font-mono text-[10px] uppercase tracking-[0.28em] text-ink-faint">
-              Investors
-            </p>
-            <p className="mt-3 max-w-md text-base leading-relaxed text-ink">
-              We&apos;re raising a pre-seed to ship our first set of
-              environments. Email for the deck or to set up a call.
-            </p>
-          </div>
-          <div>
-            <p className="font-mono text-[10px] uppercase tracking-[0.28em] text-ink-faint">
-              Labs
-            </p>
-            <p className="mt-3 max-w-md text-base leading-relaxed text-ink">
-              Tell us what you&apos;re testing for — model family, behavior to
-              surface, data format, timeline.
-            </p>
-          </div>
-        </div>
       </div>
     </section>
   );
