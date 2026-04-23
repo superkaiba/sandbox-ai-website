@@ -267,36 +267,37 @@ function Team() {
   return (
     <section
       id="team"
-      className="relative border-b border-line bg-canvas-2 px-6 py-24 sm:px-10 sm:py-32"
+      className="relative border-b border-line bg-canvas px-6 py-24 sm:px-10 sm:py-32"
     >
       <div className="mx-auto max-w-[1400px]">
-        <ul className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-4">
+        <p className="font-mono text-[10px] uppercase tracking-[0.32em] text-ink-faint">
+          Team
+        </p>
+        <ul className="mt-12 grid grid-cols-2 gap-x-8 gap-y-14 sm:gap-x-10 lg:grid-cols-4 lg:gap-x-12">
           {founders.map((f) => (
             <li key={f.name}>
               <a
                 href={f.href}
                 target="_blank"
                 rel="noreferrer"
-                className="group flex h-full flex-col border border-line bg-canvas p-5 transition-colors hover:border-amber"
+                className="group block"
               >
-                <div className="aspect-square overflow-hidden border border-line bg-canvas-3 group-hover:border-line-strong transition-colors">
+                <div className="aspect-[4/5] overflow-hidden bg-canvas-3">
                   {/* eslint-disable-next-line @next/next/no-img-element */}
                   <img
                     src={f.photo}
                     alt={f.name}
                     width={900}
-                    height={900}
+                    height={1125}
                     loading="eager"
                     decoding="async"
-                    className="h-full w-full object-cover grayscale transition-all duration-500 group-hover:grayscale-0"
+                    className="h-full w-full object-cover grayscale transition-opacity duration-300 group-hover:opacity-80"
                   />
                 </div>
-
-                <h3 className="mt-5 font-display text-xl leading-tight tracking-tight text-ink">
+                <h3 className="mt-5 font-display text-xl leading-tight tracking-tight text-ink transition-colors group-hover:text-amber sm:text-2xl">
                   {f.name}
                 </h3>
-
-                <p className="mt-3 flex-1 whitespace-pre-line text-[13px] leading-relaxed text-ink-muted">
+                <p className="mt-3 whitespace-pre-line text-[13px] leading-relaxed text-ink-muted">
                   {f.bio}
                 </p>
               </a>
