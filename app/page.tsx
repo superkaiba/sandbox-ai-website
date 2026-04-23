@@ -5,7 +5,7 @@ const founders = [
     name: "Thomas Jiralerspong",
     href: "https://superkaiba.github.io/",
     photo: "/team/thomas.webp",
-    bio: "PhD with Yoshua Bengio at Mila.\nPrev Anthropic, Vector, Waabi.",
+    bio: "PhD with Yoshua Bengio at Mila.\nPrev Anthropic, GDM, Waabi.",
   },
   {
     name: "Siddarth Venkatraman",
