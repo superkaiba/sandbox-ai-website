@@ -77,14 +77,3 @@ body {
 }
 .link-underline:hover { background-size: 100% 1px; }
 
-/* ASCII schematic block */
-.schematic {
-  font-family: var(--font-mono);
-  font-size: 11px;
-  line-height: 1.35;
-  white-space: pre;
-  color: var(--color-ink-muted);
-  letter-spacing: 0;
-  font-variant-ligatures: none;
-  font-feature-settings: "tnum", "calt" 0;
-}

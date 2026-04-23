@@ -33,37 +33,18 @@ const modules = [
     purpose:
       "Procedurally generated reinforcement-learning worlds engineered to elicit specific failure modes — deception, reward hacking, sycophancy, sandbagging, situational awareness.",
     output: "Gym-compatible env · containerized rollout",
-    schematic: `┌─────────────────────┐
-│ · · ◇ · · · · · · · │
-│ · · · · ◆ · · · · · │
-│ · ◇ · · · · · · ◇ · │
-│ · · · · · ◇ · · · · │
-│ ◇ · · · ◇ · · · · · │
-│ · · · ◇ · · · ◆ · · │
-└─────────────────────┘
-  ◆ agent  ◇ goal  · void`,
   },
   {
     title: "Datasets",
     purpose:
       "Versioned trajectory and evaluation datasets — audit-ready, reproducible — licensed to frontier labs and academic safety groups.",
     output: "Parquet · HF dataset card · evals manifest",
-    schematic: `[τ₀]──[τ₁]──[τ₂]──[τ₃]──▶
- │     │     │     │
-v.4   v.4   v.4   v.4
- │     │     │     │
-sha   sha   sha   sha`,
   },
   {
     title: "Custom engagements",
     purpose:
       "Bespoke environments built to your safety case. Joint research, internal evaluations, red-team infrastructure for in-house teams.",
     output: "6–12 weeks · NDA available · scoped proposal",
-    schematic: `┌─[INPUT]───┐    ┌─[OUTPUT]──┐
-│ spec.md   │ ─▶ │ env.tar   │
-│ threats   │    │ traces    │
-│ budgets   │    │ report    │
-└───────────┘    └───────────┘`,
   },
 ] as const;
 
@@ -252,31 +233,24 @@ function Modules() {
           {modules.map((m, i) => (
             <article
               key={m.title}
-              className={`p-8 transition-colors hover:bg-canvas-2 sm:p-10 ${
+              className={`grid gap-8 p-8 transition-colors hover:bg-canvas-2 sm:p-10 md:grid-cols-12 ${
                 i !== 0 ? "border-t border-line" : ""
               }`}
             >
-              <h3 className="font-display text-3xl leading-tight tracking-tight text-ink sm:text-4xl">
+              <h3 className="font-display text-3xl leading-tight tracking-tight text-ink sm:text-4xl md:col-span-4">
                 {m.title}
               </h3>
-              <div className="mt-8 grid gap-8 md:grid-cols-12">
-                <div className="md:col-span-7">
-                  <p className="text-base leading-relaxed text-ink">
-                    {m.purpose}
-                  </p>
-                  <p className="mt-5 font-mono text-[10px] uppercase tracking-[0.22em] text-ink-faint">
-                    Output
-                    <br />
-                    <span className="mt-1 inline-block text-ink">
-                      {m.output}
-                    </span>
-                  </p>
-                </div>
-                <div className="md:col-span-5">
-                  <pre className="schematic overflow-x-auto rounded-sm border border-line bg-canvas p-4">
-                    {m.schematic}
-                  </pre>
-                </div>
+              <div className="md:col-span-8">
+                <p className="text-base leading-relaxed text-ink sm:text-lg">
+                  {m.purpose}
+                </p>
+                <p className="mt-6 font-mono text-[10px] uppercase tracking-[0.22em] text-ink-faint">
+                  Output
+                  <br />
+                  <span className="mt-1 inline-block text-ink">
+                    {m.output}
+                  </span>
+                </p>
               </div>
             </article>
           ))}
